@@ -2,6 +2,7 @@
 
 namespace Apsl\Http;
 
+use Apsl\Html\Template;
 
 class Response
 {
@@ -107,5 +108,10 @@ class Response
         $this->setCookie(name: $name, value: '');
 
         unset($_COOKIE[$name]);
+    }
+    public function useTemplate(string $template, array $params){
+
+        $template = new Template();
+        
     }
 }

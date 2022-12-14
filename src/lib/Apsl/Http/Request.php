@@ -52,4 +52,11 @@ class Request
     {
         return ($_COOKIE[$name] ?? $default);
     }
+    public function getUri(bool $iwithQuaeryString = true): string{
+        if($iwithQuaeryString === false){
+        $uri = $_SERVER['REQUEST_URI'];
+        $uriParts = explode('?', $uri);
+        }
+        return $_SERVER['REQUEST_URI'];
+    }
 }
