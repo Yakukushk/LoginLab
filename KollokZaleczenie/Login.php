@@ -22,6 +22,11 @@
                     $msg="<span>Incorrect Password</span>";
                 }
         }
+        if(isset($_POST['Recover']) == true){
+          header("Location: http://localhost:3000/KollokZaleczenie/Recover.php");
+        
+
+        }
         
         class ClassName{
             
@@ -64,6 +69,10 @@
     <tr>
       <td> </td>
       <td><input name="Submit" type="submit" value="Login" class="Button3"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input name ="Recover" type="submit" value="Recover" class="Button4"></td>
     </tr>
   </table>
 </form>
