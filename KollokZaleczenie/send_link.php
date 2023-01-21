@@ -1,5 +1,15 @@
 <?php 
+namespace KollokZaleczeniel;
+class hash{
+public function new_Password() : void {
+    $options = [
+        'cost' => 8,
+    ];
+     $New_Password = password_hash("rasmuslerdorf", PASSWORD_BCRYPT, $options);
+     echo 'Your hash -> ' . $New_Password;
+}
 
+}
 use PHPMailer\PHPMailer\PHPMailer; 
 use PHPMailer\PHPMailer\SMTP; 
 use PHPMailer\PHPMailer\Exception; 
@@ -8,16 +18,19 @@ use PHPMailer\PHPMailer\Exception;
 require 'C:\Users\Administrator\OneDrive\Рабочий стол\VS\01-php-docker\LoginLab\KollokZaleczenie\PHPMailer-master\src\Exception.php'; 
 require 'C:\Users\Administrator\OneDrive\Рабочий стол\VS\01-php-docker\LoginLab\KollokZaleczenie\PHPMailer-master\src\PHPMailer.php'; 
 require 'C:\Users\Administrator\OneDrive\Рабочий стол\VS\01-php-docker\LoginLab\KollokZaleczenie\PHPMailer-master\src\SMTP.php'; 
+session_start();
+
+
 
 
 $mail = new PHPMailer; 
-$options = [
-    'cost' => 8,
-];
-$New_Password = password_hash("rasmuslerdorf", PASSWORD_BCRYPT, $options);
+$hash = new hash;
+$output = $hash->new_Password();
+//$_SESSION($output);
+
 $link="<a href='reset_pass.php'><br>Click To Reset password</br></a>";
 echo $link;
-echo 'Your hash -> ' . $New_Password;
+
 //$mail->isSMTP();                            
 $mail->Host = 'apsl-dev@gmx.com';           
 $mail->SMTPAuth = true;                     
